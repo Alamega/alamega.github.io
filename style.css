@@ -1,0 +1,42 @@
+body {
+    background-color: lightgreen;
+}
+
+.container {
+    margin: 8px auto;
+    padding: 8px;
+    max-width: 720px;
+    box-shadow: 0 0 4px black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color:rgb(48, 48, 48);
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 4px black;
+    padding: 12px;
+    font-size: 32px;
+    height: 32px;
+}
+
+.content {
+    text-align: justify;
+    margin: 12px;
+}
+
+footer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    box-shadow: 0 0 4px black;
+    padding: 12px;
+    height: 32px;
+}
+
+.text-align-center {
+    text-align: center;
+}
