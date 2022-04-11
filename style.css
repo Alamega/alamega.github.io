@@ -1,11 +1,12 @@
 body {
-    background: 
-    url(images/chika1.png) top left/30vw 100vh repeat-y fixed,
-    url(images/chika2.jpg) top right/30vw 100vh repeat-y fixed;
-
+    background:
+    url(images/chika1.png) top left/60vh 100vh repeat-y fixed, 
+    url(images/chika2.png) top right/60vh 100vh repeat-y fixed;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     padding: 8px;
     max-width: 720px;
@@ -26,9 +27,13 @@ header {
     padding: 12px;
     font-size: 32px;
     height: 32px;
+    border-radius: 8px;
+    background-color: white;
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
     margin: 12px;
 }
 
@@ -43,6 +48,7 @@ header {
     box-shadow: 0 0 4px black;
     margin: 8px;
     padding: 0 8px;
+    border-radius: 8px;
 }
 
 footer {
@@ -53,6 +59,8 @@ footer {
     margin: 8px;
     padding: 12px;
     height: 32px;
+    border-radius: 8px;
+    background-color: white;
 }
 
 a {
@@ -65,12 +73,25 @@ p {
     text-indent: 32px
 }
 
+p#spamer {
+    margin: 0;
+}
+
 .text-align-center {
     text-align: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 750px) {
     .flex_cont {
         flex-direction: column;
+    }
+    body {
+        background: url(images/chika1.png) top left/100% repeat-y fixed;
+    }
+    .container {
+        opacity: 0.85;
+    }
+    p {
+        color: black;
     }
 }

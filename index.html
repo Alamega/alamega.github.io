@@ -8,7 +8,17 @@
     <link type="image/png" sizes="320x320" rel="icon" href="./images/icon.png">
     <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
-<body>
+<body id="body">
+
+    <script>
+        var screen = window.matchMedia("(max-width: 750px)");
+        if (screen.mathches) { 
+            //document.getElementById('body').style.background = "url(images/chika1.png) top left/100% repeat-y fixed";
+            console.log("true")
+        }
+    </script>
+
+
     <div class="container">
         <header>
             Alamega
