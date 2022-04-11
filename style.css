@@ -31,7 +31,6 @@ header {
     font-size: 32px;
     height: 32px;
     border-radius: 8px;
-    background-color: white;
 }
 
 .content {
@@ -61,7 +60,6 @@ footer {
     padding: 12px;
     height: 32px;
     border-radius: 8px;
-    background-color: white;
 }
 
 a {
@@ -71,7 +69,6 @@ a {
 
 p {
     color: rgb(90, 90, 90);
-    text-indent: 32px
 }
 
 p#result_hello {
@@ -97,7 +94,15 @@ button {
     border-color: rgb(64, 128, 64);
     color: rgb(64, 128, 64);
     padding: 9.5px;
+}
 
+.form_hello {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_hello p{
+    margin: 4px 0;
 }
 
 .text-align-center {
