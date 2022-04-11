@@ -7,28 +7,26 @@
     <title>Сайтик</title>
     <link type="image/png" sizes="320x320" rel="icon" href="./images/icon.png">
     <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="./scripts/randomBG.js"></script>
 </head>
 <body id="body">
-
-    <script>
-        var screen = window.matchMedia("(max-width: 750px)");
-        if (screen.mathches) { 
-            //document.getElementById('body').style.background = "url(images/chika1.png) top left/100% repeat-y fixed";
-            console.log("true")
-        }
-    </script>
-
-
     <div class="container">
         <header>
             Alamega
         </header>
 
         <div class="content">
-            <p id="spamer"></p>
+
+            <script src="./scripts/forms.js"></script>
+            Введите имя:
+            <input type="text" name="input_hello" id="input_hello" value="Alamega">
+            <button onclick="hello()">Кнопочка</button>
+            <p id="result_hello"></p>
+
+
+            <div id="spamer"></div>
             <script src="./scripts/spamer.js"></script>
         </div>
-
 
         <div class="flex_cont">
             <div class="flex_item">
@@ -41,8 +39,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
-
-
+        
         <footer>
             Made by Alamega
         </footer>
