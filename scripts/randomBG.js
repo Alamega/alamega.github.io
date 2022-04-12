@@ -12,11 +12,14 @@ while (firstRandImg == secondRandImg) {
 }
 
 function getRandFon() {
-    if(window.matchMedia('(max-width: 750px)').matches){
+    if(window.matchMedia('(max-width: 800px)').matches){
         document.getElementById('body').style.background = "url(images/chika" + firstRandImg + ".png) top left/100% repeat-y fixed";
+        document.getElementById('body').style.backgroundSize = "100% auto";
     } else {
         document.getElementById('body').style.background = "url(images/chika" + firstRandImg + ".png) top left/60vh 100vh repeat-y fixed, url(images/chika" + secondRandImg + ".png) top right/60vh 100vh repeat-y fixed";
+        document.getElementById('body').style.backgroundSize = "auto 100%";
     }
+
 }
 
 document.addEventListener("DOMContentLoaded", function()

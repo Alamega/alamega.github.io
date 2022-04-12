@@ -4,9 +4,12 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     background:
     url(images/chika1.png) top left/60vh 100vh repeat-y fixed, 
     url(images/chika2.png) top right/60vh 100vh repeat-y fixed;
+    background-size:  auto 100%;
 }
 
 .container {
@@ -14,7 +17,7 @@ body {
     flex-direction: column;
     margin: 0 auto;
     padding: 8px;
-    max-width: 720px;
+    max-width: 770px;
     box-shadow: 0 0 4px black;
     color:rgb(48, 48, 48);
     background-color: white;
@@ -31,6 +34,7 @@ header {
     font-size: 32px;
     height: 32px;
     border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .content {
@@ -60,6 +64,7 @@ footer {
     padding: 12px;
     height: 32px;
     border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 a {
@@ -90,10 +95,16 @@ button {
     background-color: white;
     padding: 4px;
     margin: 8px 0;
-    /* border: 1px solid rgb(64, 128, 64); */
+    border: 1px solid rgb(64, 128, 64);
     border-color: rgb(64, 128, 64);
     color: rgb(64, 128, 64);
     padding: 9.5px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(64, 128, 64);
 }
 
 .form_hello {
@@ -103,23 +114,25 @@ button {
 
 .form_hello p{
     margin: 4px 0;
+    text-align: center;
 }
 
 .text-align-center {
     text-align: center;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 800px) {
     .flex_cont {
         flex-direction: column;
     }
     
     body {
         background: url(images/chika1.png) top left/100% repeat-y fixed;
+        background-size: 100% auto;
     }
 
     .container {
-        opacity: 0.85;
+        background-color: rgba(255, 255, 255, 0.85);
     }
 
     p {

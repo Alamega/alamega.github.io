@@ -1,4 +1,4 @@
-const SPAM_COUNT = 10;
+const SPAM_COUNT = 7;
 
 function spam(count) {
     for (let i = 0; i < count; i++) {
