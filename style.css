@@ -81,6 +81,16 @@ p#result_hello {
     margin-top: 4px;
 }
 
+.align-items-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.align-items-center input{
+    width: 40px;
+}
+
 input {
     color: rgb(90, 90, 90);
     padding: 4px;

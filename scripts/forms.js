@@ -1,9 +1,17 @@
 function hello() {
     let input = document.getElementById('input_hello');
     let result = document.getElementById('result_hello');
+    let checkbox = document.getElementById('checkbox_hello');
+    let synth = window.speechSynthesis;
+    let resultMessage = "";
     if (input.value.length > 30) {
-        result.innerHTML = "Ахахаха как смешно (нет)";
+        resultMessage = "Ахахаха как смешно (нет)";
     } else {
-        result.innerHTML = "Здравствуйте, " + input.value + " !";
+        resultMessage = "Здравствуйте, " + input.value + " !";
+    }
+    result.innerHTML = resultMessage;
+    const message = new SpeechSynthesisUtterance(resultMessage);
+    if (checkbox.checked) {
+        synth.speak(message);
     }
 }
