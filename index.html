@@ -8,23 +8,36 @@
     <link type="image/png" sizes="320x320" rel="icon" href="./images/icon.png">
     <link rel="stylesheet" type="text/css" href="./style.css">
     <script src="./scripts/randomBG.js"></script>
+
+    <!-- <script src="./scripts/buttons.js"></script> -->
+
 </head>
 <body id="body">
     <div class="container">
         <header>
-            Alamega
+            <a href="./index.html">Alamega</a> 
         </header>
 
         <div class="content">
-            <div class="form_hello">
-                <script src="./scripts/forms.js"></script>
-                <p>Введите имя:</p>
-                <input type="text" name="input_hello" id="input_hello" value="Alamega">
-                <div class="align-items-center">Озвучить: <input type="checkbox" id="checkbox_hello"></div> 
-                <button onclick="hello()" id="button_hello">Кнопочка</button>
-                <p id="result_hello"></p>
+            <hr class="solid">
+            <div id="clock">Где я потерял свои часы?</div>
+            <hr class="solid">
+
+
+            <div class="flex_cont">
+                <div class="flex_item">
+                    <a href="./hello.html">Привет.js</a></li>
+                </div>
+                <div class="flex_item">
+                    <a href="./">Ничего?</a></li>
+                </div>
+                <div class="flex_item">
+                    <a href="./">Ничего?</a></li>
+                </div>
             </div>
 
+
+            <script src="./scripts/clock.js"></script>
             <div id="spamer"></div>
             <script src="./scripts/spamer.js"></script>
         </div>

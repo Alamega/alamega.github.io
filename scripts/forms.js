@@ -11,6 +11,9 @@ function hello() {
     }
     result.innerHTML = resultMessage;
     const message = new SpeechSynthesisUtterance(resultMessage);
+
+    message.rate = 2;
+
     if (checkbox.checked) {
         synth.speak(message);
     }

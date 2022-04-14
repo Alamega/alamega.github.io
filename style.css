@@ -22,6 +22,7 @@ body {
     color:rgb(48, 48, 48);
     background-color: white;
     text-align: justify;
+    min-height: calc(100vh - 16px);
 }
 
 header {
@@ -37,6 +38,21 @@ header {
     background-color: rgba(255, 255, 255, 1);
 }
 
+header a{
+    color:rgb(48, 48, 48);
+    font-size: 32px;
+}
+
+div#clock {
+    text-align: center;
+    font-size: 32px;
+}
+
+hr.solid {
+    border: 1px solid white;
+    box-shadow: 0 0 2px black;
+}
+
 .content {
     margin: 12px;
 }
@@ -49,10 +65,14 @@ header {
 }
 
 .flex_item {
+    display: flex;
     box-shadow: 0 0 4px black;
     margin: 8px;
-    padding: 0 8px;
+    padding: 8px;
     border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 footer {
@@ -65,15 +85,18 @@ footer {
     height: 32px;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 1);
+    margin-top: auto;
 }
 
 a {
     text-decoration: none;
     color: rgb(64, 128, 64);
+    margin: 8px;
 }
 
 p {
     color: rgb(90, 90, 90);
+    margin: 8px;
 }
 
 p#result_hello {
