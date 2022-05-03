@@ -15,15 +15,16 @@
             <a href="./index.html">Alamega</a> 
         </header>
         
-        <div class="content">
-            <div class="form_center">
-                <script src="./scripts/hello.js"></script>
-                <p>Введите имя:</p>
-                <input type="text" id="input_hello" value="Alamega">
-                <div class="align-items-center">Озвучить: <input type="checkbox" id="checkbox_hello"></div> 
-                <button class="button" onclick="hello()" id="button_hello">Кнопочка</button>
-                <p id="result_hello"></p>
-            </div>
+        <div class="content form_center">
+            <script src="./scripts/RSA.js"></script>
+            <p>Введите p:</p>
+            <input type="text" id="p">
+            <p>Введите q:</p>
+            <input type="text" id="q">
+            <p>Введите Kc:</p>
+            <input type="text" id="d">
+            <button class="button" onclick="GetKeys()" id="button_rsa">Кнопочка</button>
+            <p id="result"></p>
         </div>
 
         <footer>

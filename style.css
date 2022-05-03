@@ -140,12 +140,12 @@ button:hover {
     background-color: rgb(64, 128, 64);
 }
 
-.form_hello {
+.form_center {
     display: flex;
     flex-direction: column;
 }
 
-.form_hello p{
+.form_center p{
     margin: 4px 0;
     text-align: center;
 }
