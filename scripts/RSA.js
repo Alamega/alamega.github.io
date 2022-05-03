@@ -7,6 +7,16 @@ var e;
 var arr = [ null, null, 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М',
 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э','Ю', 'Я'
 ];
+
+
+console.log(arr.indexOf('Ш'));
+console.log(arr.indexOf('У'));
+console.log(arr.indexOf('М'));
+console.log(arr.indexOf('А'));
+console.log(arr.indexOf('Н'));
+
+
+
 function GetKeys () {
     p = document.getElementById('p').value;
     q = document.getElementById('q').value;
@@ -27,30 +37,31 @@ function GetKeys () {
     }
 }
 
-function Enc () {
-    function EncChar (x) {
-        return Math.pow(arr.indexOf(x),e)%mod;
-    }
-    let encStr = document.getElementById('encStr').value;
-    let resultStr = "";
-    for (let i = 0; i < encStr.length; i++) {
-        resultStr+=EncChar(encStr[i])+" ";
-    }
-    let result = document.getElementById('result_enc');
-    result.innerHTML = "Зашифрованная строка: " + resultStr;
-}
+// function Enc () {
+//     function EncChar (x) {
+//         return Math.pow(arr.indexOf(x),e)%mod;
+//     }
+//     let encStr = document.getElementById('encStr').value;
+//     let resultStr = "";
+//     for (let i = 0; i < encStr.length; i++) {
+//         resultStr+=EncChar(encStr[i])+" ";
+//     }
+//     let result = document.getElementById('result_enc');
+//     result.innerHTML = "Зашифрованная строка: " + resultStr;
+// }
 
-function Dec () {
-    function DecInt (x) {
-        return Math.pow(x,d)%mod;
-    }
-    //DecInt(27) => 30 ???
-    let decStr = document.getElementById('decStr').value;
-    arrDec = decStr.split(' ');
-    let resultStr = "";
-    for (let i = 0; i < arrDec.length; i++) {
-        resultStr+=arr[DecInt(arrDec[i])];
-    }
-    let result = document.getElementById('result_dec');
-    result.innerHTML = "Расшифрованная строка: " + resultStr;
-}
+// function Dec () {
+//     function DecInt (x) {
+//         return Math.pow(x,d)%mod;
+//     }
+//     DecInt(27); //DecInt(27) => 30 ???
+//     let decStr = document.getElementById('decStr').value;
+//     arrDec = decStr.split(' ');
+//     console.log(arrDec);
+//     let resultStr = "";
+//     for (let i = 0; i < arrDec.length; i++) {
+//         resultStr+=arr[DecInt(arrDec[i])];
+//     }
+//     let result = document.getElementById('result_dec');
+//     result.innerHTML = "Расшифрованная строка: " + resultStr;
+// }
