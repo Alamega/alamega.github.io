@@ -7,7 +7,6 @@ var e;
 var arr = [ null, null, 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М',
 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э','Ю', 'Я'
 ];
-console.log(arr.indexOf('Ш'));
 function GetKeys () {
     p = document.getElementById('p').value;
     q = document.getElementById('q').value;
@@ -45,16 +44,11 @@ function Dec () {
     function DecInt (x) {
         return Math.pow(x,d)%mod;
     }
-    console.log("DecInt(27) = "+DecInt(27));
-    console.log("Говнина(рыганина) = " + Math.pow(27,23)%91);
+    //DecInt(27) => 30 ???
     let decStr = document.getElementById('decStr').value;
     arrDec = decStr.split(' ');
-    //arrDec Работает
     let resultStr = "";
     for (let i = 0; i < arrDec.length; i++) {
-        console.log("i = "+arrDec[i]);
-        console.log("d = "+DecInt(arrDec[i]));
-        
         resultStr+=arr[DecInt(arrDec[i])];
     }
     let result = document.getElementById('result_dec');
