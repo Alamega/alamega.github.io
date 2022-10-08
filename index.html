@@ -1,60 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="image/png" sizes="320x320" rel="icon" href="/images/icon.png" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
     <title>Сайтик</title>
-    <link type="image/png" sizes="320x320" rel="icon" href="./images/icon.png">
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <script src="./scripts/randomBG.js"></script>
-
-    <!-- <script src="./scripts/buttons.js"></script> -->
-
-</head>
-<body id="body">
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <a href="./index.html">Alamega</a> 
-        </header>
+      <header>
+        <a href="/"><h1>Alamega</h1></a>
+        <div id="clock">Где я потерял свои часы?</div>
+        <script src="/scripts/clock.js"></script>
+        <div class="navbar" id="navbar">
+          <button class="navbar_icon" id="navbar_btn"></button>
+          <div class="navbar_menu" id="navbar_menu">
+            <a href="/">Главная</a>
+          </div>
+        </div>
+        <script src="/scripts/navbar.js"></script>
+      </header>
 
+      <div class="full-wrapper">
         <div class="content">
-            <hr class="solid">
-            <div id="clock">Где я потерял свои часы?</div>
-            <hr class="solid">
-
-            <div class="flex_cont">
-                <div class="flex_item">
-                    <a href="./hello.html">Привет.js</a></li>
-                </div>
-                <div class="flex_item">
-                    <a href="./RSA.html">RSA.js</a></li>
-                </div>
-                <div class="flex_item">
-                    <a href="./">Ничего?</a></li>
-                </div>
-            </div>
-
-            <script src="./scripts/clock.js"></script>
-            <div id="spamer"></div>
-            <script src="./scripts/spamer.js"></script>
+          <button class="button-green" onclick="window.location.href = 'https\://alamega-spring.herokuapp.com'">Java Spring Boot</button>
+          <button class="button-green" onclick="window.location.href = 'https\://alamegas.herokuapp.com'">NodeJS</button>
         </div>
 
-        <div class="flex_cont">
-            <div class="flex_item">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="flex_item">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="flex_item">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
+        <div class="sidebar">
+          <a href="/">Главная</a>
         </div>
-        
-        <footer>
-            Made by Alamega
-        </footer>
+      </div>
+
+      <footer>
+        <p>&copy Made by Alamega</p>
+      </footer>
     </div>
-</body>
+  </body>
 </html>

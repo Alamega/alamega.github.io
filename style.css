@@ -1,174 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
+  font-size: 18px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::selection {
+  background: rgb(205, 255, 205);
+  color: green;
+}
+
+html {
+  background: white url("/images/bg.png") no-repeat center center/cover fixed;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background:
-    url(images/chika1.png) top left/60vh 100vh repeat-y fixed, 
-    url(images/chika2.png) top right/60vh 100vh repeat-y fixed;
-    background-size:  auto 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 8px;
-    max-width: 770px;
-    box-shadow: 0 0 4px black;
-    color:rgb(48, 48, 48);
-    background-color: white;
-    text-align: justify;
-    min-height: calc(100vh - 16px);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100%;
+  max-width: 960px;
+  box-shadow: 0 0 4px black;
+  color: rgb(48, 48, 48);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 4px black;
-    margin: 8px;
-    padding: 12px;
-    font-size: 32px;
-    height: 32px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  max-height: 40px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 4px black;
+  margin: 8px 8px 0;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 5;
 }
 
-header a{
-    color:rgb(48, 48, 48);
-    font-size: 32px;
+header h1 {
+  color: rgb(48, 48, 48);
+  font-size: 32px;
+  margin: 0;
 }
 
-div#clock {
-    text-align: center;
-    font-size: 32px;
-}
-
-hr.solid {
-    border: 1px solid white;
-    box-shadow: 0 0 2px black;
+.full-wrapper {
+  display: flex;
+  flex-grow: 1;
 }
 
 .content {
-    margin: 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 4 0 0;
+  margin: 12px;
 }
 
-.flex_cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 8px auto;
-}
-
-.flex_item {
-    display: flex;
-    box-shadow: 0 0 4px black;
-    margin: 8px;
-    border-radius: 8px;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1 0 0;
+  margin-right: 16px;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 footer {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    box-shadow: 0 0 4px black;
-    margin: 8px;
-    padding: 12px;
-    height: 32px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 1);
-    margin-top: auto;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  box-shadow: 0 0 4px black;
+  margin: 0 8px 8px;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 5;
+}
+
+div#clock {
+  text-align: center;
+  font-size: 39px;
+  padding: 0 12px;
+}
+
+.title-green {
+  margin: 0;
+  font-size: 32px;
+  color: rgb(64, 128, 64);
+  align-self: center;
 }
 
 a {
-    text-decoration: none;
-    color: rgb(64, 128, 64);
-    margin: 8px;
+  text-decoration: none;
+  color: rgb(64, 128, 64);
+  padding: 8px;
+  transition: all 0.2s;
 }
 
 p {
-    color: rgb(90, 90, 90);
-    margin: 8px;
+  color: rgb(48, 48, 48);
+  margin: 0;
+  padding: 8px;
+  word-break: break-word;
 }
 
-p#result_hello {
-    margin: 0;
-    margin-top: 4px;
+.button-green {
+  border-radius: 6px;
+  background-color: white;
+  margin: 8px 0;
+  border: 1px solid rgb(64, 128, 64);
+  color: rgb(64, 128, 64);
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
 }
 
-.align-items-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.button-green:hover {
+  color: white;
+  background-color: rgb(64, 128, 64);
 }
 
-.align-items-center input{
-    width: 40px;
+.button-delete {
+  border-radius: 6px;
+  background-color: white;
+  margin: 8px 0;
+  border: 1px solid red;
+  color: red;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
 }
 
-input {
-    color: rgb(90, 90, 90);
-    padding: 4px;
-    margin: 8px 0;
-    border: 1px solid rgb(90, 90, 90);
-    border-radius: 6px;
-    height: 30px;
+.button-delete:hover {
+  color: white;
+  background-color: red;
 }
 
-.button {
-    border-radius: 6px;
-    background-color: white;
-    padding: 4px;
-    margin: 8px 0;
-    border: 1px solid rgb(64, 128, 64);
-    border-color: rgb(64, 128, 64);
-    color: rgb(64, 128, 64);
-    padding: 9.5px;
-    cursor: pointer;
-    text-align: center;
+.sidebar a:hover {
+  color: white;
+  background-color: rgb(64, 128, 64);
 }
 
-button:hover {
-    color: white;
-    background-color: rgb(64, 128, 64);
+.navbar {
+  display: none;
+  flex-direction: column;
+  margin: auto 0 0 0;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
 }
 
-.form_center {
-    display: flex;
+.navbar:hover {
+  box-shadow: 0 0 4px black;
+}
+
+.navbar_icon {
+  background: url(../images/burger.png) center/40px 40px;
+  align-self: flex-end;
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  border: none;
+}
+
+.navbar_menu {
+  display: flex;
+  flex-direction: column;
+  margin: 6px;
+  border-radius: 8px;
+  box-shadow: 0 0 2px black;
+}
+
+.navbar:hover .navbar_icon {
+  transform: scale(1.1);
+}
+
+.navbar_menu a {
+  padding: 12px;
+  font-size: 16px;
+  color: rgb(64, 128, 64);
+}
+
+@media (max-width: 960px) {
+  .flex_cont {
     flex-direction: column;
-}
+  }
 
-.form_center p{
-    margin: 4px 0;
-    text-align: center;
-}
+  .container {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
 
-.text-align-center {
-    text-align: center;
-}
+  .sidebar,
+  div#clock {
+    display: none;
+  }
 
-@media (max-width: 800px) {
-    .flex_cont {
-        flex-direction: column;
-    }
-    
-    body {
-        background: url(images/chika1.png) top left/100% repeat-y fixed;
-        background-size: 100% auto;
-    }
-
-    .container {
-        background-color: rgba(255, 255, 255, 0.85);
-    }
-
-    p {
-        color: black;
-    }
+  .navbar {
+    display: flex;
+  }
 }
