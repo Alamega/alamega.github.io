@@ -4,39 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link type="image/png" sizes="320x320" rel="icon" href="/images/icon.png" />
-    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link type="image/png" sizes="320x320" rel="icon" href="/icon.png" />
     <title>Сайтик</title>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <a href="/"><h1>Alamega</h1></a>
-        <div id="clock">Где я потерял свои часы?</div>
-        <script src="/scripts/clock.js"></script>
-        <div class="navbar" id="navbar">
-          <button class="navbar_icon" id="navbar_btn"></button>
-          <div class="navbar_menu" id="navbar_menu">
-            <a href="/">Главная</a>
-          </div>
-        </div>
-        <script src="/scripts/navbar.js"></script>
-      </header>
+    <style>
+      html {
+        display: flex;
+        flex-direction: column;
+        background: rgb(129, 167, 111);
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
 
-      <div class="full-wrapper">
-        <div class="content">
-          <a class="button-green" href="https://alamega.onrender.com">Java Spring Boot</a>
-          <a class="button-green" href="https://alamega-node.onrender.com">NodeJS + React</a>
-        </div>
+      body {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        margin: 10px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 4px black;
+      }
 
-        <div class="sidebar">
-          <a href="/">Главная</a>
-        </div>
-      </div>
+      a {
+        text-align: center;
+        font-size: 24px;
+        color: rgb(129, 167, 111);
+        text-decoration: none;
+        margin: 8px;
+        padding: 12px 16px;
+        box-shadow: 0 0 4px black;
+        border-radius: 8px;
+      }
 
-      <footer>
-        <p>&copy Made by Alamega</p>
-      </footer>
-    </div>
+      a:hover {
+        color: white;
+        background-color: rgb(129, 167, 111);
+      }
+    </style>
+    <a href="https://alamega-api.onrender.com">Java Spring Boot REST API</a>
+    <a href="https://alamega.onrender.com">Next JS</a>
   </body>
 </html>
