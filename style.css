@@ -1,7 +1,8 @@
 html {
+  user-select: none;
   display: flex;
   flex-direction: column;
-  background: rgb(181, 230, 181);
+  background: rgb(4, 37, 17);
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -11,11 +12,11 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  padding: 16px;
+  padding: 12px;
   margin: 20px;
-  background-color: white;
+  background-color: rgb(200, 200, 200);
   border-radius: 8px;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 12px white;
 }
 
 .services-wrapper {
@@ -24,6 +25,10 @@ body {
 }
 
 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(220, 220, 220);
   text-align: center;
   font-size: 20px;
   color: rgb(30, 95, 0);
@@ -34,13 +39,22 @@ a {
   border-radius: 8px;
 }
 
+a > img {
+  padding-right: 10px;
+  height: 30px;
+}
+
 a:hover {
   color: white;
   background-color: rgb(108, 160, 83);
 }
 
+a:hover {
+  color: white;
+}
+
 p {
-  font-size: 20px;
+  font-size: 18px;
   color: rgb(30, 95, 0);
   margin: 8px;
 }
