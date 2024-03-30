@@ -2,7 +2,7 @@ html {
   user-select: none;
   display: flex;
   flex-direction: column;
-  background: rgb(4, 37, 17);
+  background-color: rgb(67, 99, 52);
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -11,12 +11,12 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 600px;
   padding: 12px;
   margin: 20px;
   background-color: rgb(200, 200, 200);
   border-radius: 8px;
-  box-shadow: 0 0 12px white;
+  box-shadow: 0 0 4px black;
 }
 
 .services-wrapper {
@@ -35,7 +35,7 @@ a {
   text-decoration: none;
   margin: 8px;
   padding: 12px 16px;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 6px black;
   border-radius: 8px;
 }
 
@@ -78,4 +78,19 @@ p {
   font-size: 18px;
   color: rgb(30, 95, 0);
   margin: 8px;
+}
+
+@media (max-width: 640px) {
+  p {
+    font-size: 15px;
+  }
+  a {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 340px) {
+  a > img {
+    display: none;
+  }
 }
