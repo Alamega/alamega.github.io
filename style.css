@@ -40,8 +40,22 @@ a {
 }
 
 a > img {
-  padding-right: 10px;
+  padding: 4px;
+  margin-right: 10px;
   height: 30px;
+}
+
+.working,
+.not-working {
+  padding-left: 10px;
+}
+
+.working {
+  color: green;
+}
+
+.not-working {
+  color: red;
 }
 
 a:hover {
@@ -49,8 +63,15 @@ a:hover {
   background-color: rgb(108, 160, 83);
 }
 
-a:hover {
+a:hover,
+a:hover > span {
   color: white;
+}
+
+a:hover > img {
+  background-color: white;
+  box-shadow: 0 0 10px white;
+  border-radius: 50%;
 }
 
 p {

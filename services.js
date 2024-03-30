@@ -15,9 +15,7 @@ services.forEach(async function (service) {
   const link = document.createElement("a");
   document.getElementById("services").appendChild(link);
   link.href = service.link;
-  link.innerHTML = `<img src="` + service.img + `""/>` + service.desc + "(запускается...)";
-  link.style.color = "red";
+  link.innerHTML = `<img src="` + service.img + `""/>` + service.desc + `<span class="not-working">(запускается...)<span/>`;
   await fetch(service.link, { mode: "no-cors" });
-  link.innerHTML = `<img src="` + service.img + `""/>` + service.desc + " (работает)";
-  link.style.color = "green";
+  link.innerHTML = `<img src="` + service.img + `""/>` + service.desc + `<span class="working">(работает)<span/>`;
 });
