@@ -19,4 +19,7 @@ services.forEach(async function (service) {
   link.innerHTML = `<img src="` + service.img + `""/>` + service.desc + `<span class="not-working">Запускается...<span/>`;
   await fetch(service.link, { mode: "no-cors" });
   link.innerHTML = `<img src="` + service.img + `""/>` + service.desc + `<span class="working">Работает<span/>`;
+  setInterval(() => {
+    fetch(service.link, { mode: "no-cors" });
+  }, 30000);
 });
