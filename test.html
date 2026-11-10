@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мега-Тест: IQ + ПДД</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --primary-color: #4a90e2;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0%;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .badge-iq { background-color: #e1f5fe; color: #0288d1; }
+        .badge-pdd { background-color: #efebe9; color: #5d4037; }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+
+        .option-item {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .option-item:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f7ff;
+        }
+
+        .option-item.selected {
+            border-color: var(--primary-color);
+            background-color: #e1f0ff;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #357abd;
+        }
+
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        /* Экран результатов */
+        #result-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .score-summary {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .score-count {
+            font-weight: bold;
+        }
+
+        .text-success { color: var(--success-color); }
+        .text-error { color: var(--error-color); }
+
+        .wrong-answers-section {
+            text-align: left;
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+
+        .wrong-answers-title {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .wrong-item {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .wrong-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.1);
+        }
+
+        .wrong-question-title {
+            font-weight: 600;
+            color: #c53030;
+            margin-bottom: 5px;
+        }
+
+        .wrong-details {
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #feb2b2;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .wrong-details p {
+            margin: 5px 0;
+        }
+
+        .explanation {
+            background: #fff;
+            padding: 8px;
+            border-left: 3px solid var(--primary-color);
+            margin-top: 5px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Экран самого теста -->
+    <div id="quiz-screen">
+        <h1>IQ & ПДД Микс-Тест</h1>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div id="question-container">
+            <!-- Вопросы будут рендериться скриптом -->
+        </div>
+
+        <button id="next-btn" class="btn" disabled>Далее</button>
+    </div>
+
+    <!-- Экран результатов -->
+    <div id="result-screen">
+        <h1>Тест завершен!</h1>
+        <div class="score-summary">
+            <p>Правильных ответов: <span class="score-count text-success" id="correct-count">0</span></p>
+            <p>Неправильных ответов: <span class="score-count text-error" id="incorrect-count">0</span></p>
+        </div>
+
+        <div class="wrong-answers-section" id="errors-section" style="display: none;">
+            <div class="wrong-answers-title">Нажмите на ошибку, чтобы посмотреть разбор:</div>
+            <div id="wrong-answers-list">
+                <!-- Сюда упадут ошибки -->
+            </div>
+        </div>
+
+        <button onclick="location.reload()" class="btn" style="margin-top: 25px; background-color: #2c3e50;">Пройти заново</button>
+    </div>
+</div>
+
+<script>
+    // База данных вопросов (IQ и ПДД вперемешку)
+    const questions = [
+        {
+            id: 1,
+            category: "iq",
+            categoryName: "Тест на IQ",
+            question: "Продолжите числовой ряд: 2, 4, 8, 16, ...",
+            options: ["20", "24", "32", "64"],
+            correct: 2, // Индекс правильного ответа (32)
+            explanation: "Каждое следующее число умножается на 2."
+        },
+        {
+            id: 2,
+            category: "pdd",
+            categoryName: "ПДД",
+            question: "Что означает мигающий зеленый сигнал светофора?",
+            options: [
+                "Запрещает движение",
+                "Разрешает движение и информирует, что время его действия истекает",
+                "Обязывает уступить дорогу встречному транспорту"
+            ],
+            correct: 1,
+            explanation: "Мигающий зеленый разрешает движение и сообщает, что вскоре включится запрещающий сигнал."
+        },
+        {
+            id: 3,
+            category: "iq",
+            categoryName: "Тест на IQ",
+            question: "Какое слово лишнее: Книга, Тетрадь, Блокнот, Компас?",
+            options: ["Книга", "Тетрадь", "Блокнот", "Компас"],
+            correct: 3,
+            explanation: "Компас — это навигационный прибор, а всё остальное — бумажная канцелярия/печатные изделия."
+        },
+        {
+            id: 4,
+            category: "pdd",
+            categoryName: "ПДД",
+            question: "С какой максимальной скоростью разрешено движение легковых автомобилей в жилых зонах и на дворовых территориях?",
+            options: ["10 км/ч", "20 км/ч", "30 км/ч", "50 км/ч"],
+            correct: 1,
+            explanation: "Согласно правилам, скорость движения транспортных средств в жилых зонах ограничена 20 км/ч."
+        },
+        {
+            id: 5,
+            category: "iq",
+            categoryName: "Тест на IQ",
+            question: "Если перевернуть слово 'ТИП', получится:",
+            options: ["ПИТ", "ИПТ", "ПТИ", "ТПИ"],
+            correct: 0,
+            explanation: "Буквы задом наперед читаются как П-И-Т."
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let userAnswers = []; // Хранит индексы ответов пользователя
+
+    const questionContainer = document.getElementById('question-container');
+    const nextBtn = document.getElementById('next-btn');
+    const progressBar = document.getElementById('progress');
+    const quizScreen = document.getElementById('quiz-screen');
+    const resultScreen = document.getElementById('result-screen');
+
+    // Инициализация теста
+    function loadQuestion() {
+        const q = questions[currentQuestionIndex];
+        nextBtn.disabled = true; // Отключаем кнопку пока нет выбора
+
+        // Обновляем прогресс-бар
+        const progressPercent = (currentQuestionIndex / questions.length) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+
+        // Рендерим карточку вопроса
+        questionContainer.innerHTML = `
+            <div class="question-card active">
+                <span class="category-badge badge-${q.category}">${q.categoryName}</span>
+                <div class="question-text">${q.question}</div>
+                <ul class="options-list">
+                    ${q.options.map((option, index) => `
+                        <li class="option-item" onclick="selectOption(${index})">${option}</li>
+                    `).join('')}
+                </ul>
+            </div>
+        `;
+    }
+
+    // Выбор варианта ответа
+    window.selectOption = function(index) {
+        userAnswers[currentQuestionIndex] = index;
+
+        // Визуально подсвечиваем активный пункт
+        const items = document.querySelectorAll('.option-item');
+        items.forEach((item, i) => {
+            if(i === index) item.classList.add('selected');
+            else item.classList.remove('selected');
+        });
+
+        nextBtn.disabled = false; // Разрешаем идти дальше
+    }
+
+    // Клик на кнопку "Далее"
+    nextBtn.addEventListener('click', () => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            loadQuestion();
+        } else {
+            showResults();
+        }
+    });
+
+    // Экран результатов
+    function showResults() {
+        quizScreen.style.display = 'none';
+        resultScreen.style.display = 'block';
+
+        let correctCount = 0;
+        let incorrectCount = 0;
+        const wrongAnswersList = document.getElementById('wrong-answers-list');
+        wrongAnswersList.innerHTML = ''; // Очистка перед заполнением
+
+        questions.forEach((q, index) => {
+            const userAnswer = userAnswers[index];
+            if (userAnswer === q.correct) {
+                correctCount++;
+            } else {
+                incorrectCount++;
+                // Формируем блок для работы над ошибками
+                const wrongItem = document.createElement('div');
+                wrongItem.className = 'wrong-item';
+                wrongItem.innerHTML = `
+                    <div class="wrong-question-title">❌ Ошибка в вопросе: "${q.question}"</div>
+                    <div style="font-size:13px; color:#718096; margin-bottom:5px;">(Кликните, чтобы посмотреть разбор)</div>
+                    <div class="wrong-details">
+                        <p><strong>Ваш ответ:</strong> <span class="text-error">${q.options[userAnswer] || "Не выбрано"}</span></p>
+                        <p><strong>Правильный ответ:</strong> <span class="text-success">${q.options[q.correct]}</span></p>
+                        <div class="explanation"><strong>Объяснение:</strong> ${q.explanation}</div>
+                    </div>
+                `;
+
+                // Логика разворачивания по клику на плашку ошибки
+                wrongItem.addEventListener('click', function(e) {
+                    const details = this.querySelector('.wrong-details');
+                    const isVisible = window.getComputedStyle(details).display === 'block';
+                    details.style.display = isVisible ? 'none' : 'block';
+                });
+
+                wrongAnswersList.appendChild(wrongItem);
+            }
+        });
+
+        // Обновляем счетчики на UI
+        document.getElementById('correct-count').innerText = correctCount;
+        document.getElementById('incorrect-count').innerText = incorrectCount;
+
+        // Если ошибки есть — показываем блок "Нажмите на ошибку..."
+        if (incorrectCount > 0) {
+            document.getElementById('errors-section').style.display = 'block';
+        }
+    }
+
+    // Запуск теста при загрузке страницы
+    loadQuestion();
+</script>
+</body>
+</html>
